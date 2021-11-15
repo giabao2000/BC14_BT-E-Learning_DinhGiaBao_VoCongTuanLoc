@@ -14,6 +14,7 @@ export class DataService {
   // Observable: tương tự như promise(), nhưng có thể hủy gọi api dc
   getListCourse(): Observable<any> {
     const url = 'https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01';
+
     const observable = this.http.get(url).pipe(
       // Success
       tap(() => {}),
@@ -23,6 +24,21 @@ export class DataService {
       })
     );
     
+    return observable;
+  }
+
+  getDetailCourse(id: any): Observable<any> {
+    const url = `https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${id}`;
+
+    const observable = this.http.get(url).pipe(
+      // Success
+      tap(() => {}),
+      // Failed
+      catchError((error: any) => {
+        return this.handleError(error);
+      })
+    );
+
     return observable;
   }
 
