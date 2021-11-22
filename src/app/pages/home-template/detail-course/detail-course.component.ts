@@ -30,7 +30,7 @@ export class DetailCourseComponent implements OnInit {
 
   getDetailCourse(id: any) {
     // muốn lấy data trong getDetailCourse() thì phải sử dụng subscribe()
-    this.dataService.getDetailCourse(id).subscribe((result: any) => {
+    this.dataService.get(`QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${id}`).subscribe((result: any) => {
       console.log("get detail course:", result);
       this.course = result;
     })

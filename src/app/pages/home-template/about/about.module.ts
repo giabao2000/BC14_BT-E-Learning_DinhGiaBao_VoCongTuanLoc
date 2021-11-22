@@ -1,3 +1,4 @@
+import { ShareModuleModule } from './../../../_core/shares/share-module/share-module.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,9 @@ import { AboutComponent } from './about.component';
   ],
   imports: [
     CommonModule,
-    AboutRoutingModule
+    AboutRoutingModule,
+    ShareModuleModule
   ]
 })
+
 export class AboutModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/_core/services/data.service';
+// import { DataService } from 'src/app/_core/services/data.service';
+import { DataService } from '@services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-course',
@@ -8,6 +10,7 @@ import { DataService } from 'src/app/_core/services/data.service';
 })
 export class ListCourseComponent implements OnInit {
   listCourse: any;
+  subListCourse = new Subscription();
 
   constructor(private data: DataService) { }
 
@@ -19,10 +22,16 @@ export class ListCourseComponent implements OnInit {
 
   getCourse() {
     // muốn lấy data trong getListCourse() thì phải sử dụng subscribe()
-    this.data.getListCourse().subscribe((result: any) => {
+    // subscribe(): đăng kí theo dõi
+    this.subListCourse =  this.data.get('QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01').subscribe((result: any) => {
       console.log(result);
       this.listCourse = result;
     });
+  }
+
+  ngOnDestroy() {
+    // hủy bỏ theo dõi
+    this.subListCourse.unsubscribe();
   }
 
 }
