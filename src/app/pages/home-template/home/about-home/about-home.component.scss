@@ -8,33 +8,30 @@
 .about-left {
   text-align: center;
   padding: 0 20px;
-}
 
-.about-left .description {
-  color: #fff;
-}
+  .description {
+    color: #fff;
+    font-size: 24px;
+  }
 
-.about-left .title,
-.about-left i {
-  color: rgb(85, 226, 85);
-}
+  .title {
+    font-size: 36px;
+  }
 
-.about-left .title {
-  font-size: 36px;
-}
-
-.about-left .description {
-  font-size: 24px;
+  .title,
+  i {
+    color: rgb(85, 226, 85);
+  }
 }
 
 .about-right {
   padding: 0 20px;
-}
 
-.about-right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 1024px) {

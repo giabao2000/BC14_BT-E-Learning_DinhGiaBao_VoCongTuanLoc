@@ -65,15 +65,15 @@
   top: 180px;
   transition: all 0.5s;
   display: initial !important;
-}
 
-.input-group div {
-  display: flex;
-  align-items: center;
-}
+  div {
+    display: flex;
+    align-items: center;
+  }
 
-.input-group div i {
-  margin-right: 6px;
+  div i {
+    margin-right: 6px;
+  }
 }
 
 .input-field {
@@ -115,9 +115,9 @@
 .back-home {
   display: flex;
   justify-content: center;
-}
 
-.back-home i {
-  color: #007bff;
-  font-size: 16px;
+  i {
+    color: #007bff;
+    font-size: 16px;
+  }
 }

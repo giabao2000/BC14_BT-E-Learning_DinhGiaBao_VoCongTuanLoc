@@ -44,20 +44,20 @@
   flex-direction: column;
   justify-content: center;
   list-style-type: none;
-}
 
-.list-menu-item a {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 24px;
-  display: block;
-}
+  a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 24px;
+    display: block;
+  }
 
-.list-menu-item a:hover {
-  color: #ff7200;
+  a:hover {
+    color: #ff7200;
+  }
 }
 
 .btn-login {
@@ -65,25 +65,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.btn-login div {
-  color: #fff;
-}
+  div {
+    color: #fff;
+  }
 
-.btn-login a {
-  height: 100%;
-  display: block;
-}
+  a {
+    height: 100%;
+    display: block;
+  }
 
-.btn-login a:hover {
-  color: #ff7200;
-  background-color: #fff;
-}
+  a:hover {
+    color: #ff7200;
+    background-color: #fff;
+  }
 
-.btn-login .user:hover {
-  color: #007bff;
-  background-color: transparent;
+  .user:hover {
+    color: #007bff;
+    background-color: transparent;
+  }
 }
 
 /* MENU TOGGLE */
@@ -92,11 +92,11 @@
   text-align: center;
   padding: 6px 10px;
   color: #fff;
-}
 
-.menu-toggle i,
-.menu-toggle span {
-  font-size: 24px;
+  i,
+  span {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 1023px) {
