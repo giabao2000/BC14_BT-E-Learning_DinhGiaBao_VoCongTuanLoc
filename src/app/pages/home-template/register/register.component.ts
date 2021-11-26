@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     user.maNhom = 'GP01';
     // console.log(user);
 
-    this.dataService.post('api/QuanLyNguoiDung/DangKy', user).subscribe((result) => {
+    this.dataService.post('QuanLyNguoiDung/DangKy', user).subscribe((result) => {
       // console.log(result);
     })
   }

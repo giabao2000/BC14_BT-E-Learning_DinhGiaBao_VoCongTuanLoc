@@ -12,10 +12,9 @@ export class AuthGuard implements CanActivate {
       // Đã login thành công
       return true;
     }
-    
+  
     // Chưa login - chuyển hướng về trang /auth
     this.router.navigate(['/auth']);
     return false;
   }
-  
 }

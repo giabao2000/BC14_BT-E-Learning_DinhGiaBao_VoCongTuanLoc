@@ -12,6 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home-template/home-template.module').then((m) => m.HomeTemplateModule),
   },
 
+  // Login Home - localhost:4200/login
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login-home/login-home.module').then((m) => m.LoginHomeModule),
+  },
+
   // AdminTemplate - localhost:4200/admin
   {
     path: 'admin',

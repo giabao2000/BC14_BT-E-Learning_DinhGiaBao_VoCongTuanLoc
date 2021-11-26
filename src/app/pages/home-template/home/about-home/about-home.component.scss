@@ -1,0 +1,48 @@
+/* About */
+.about {
+  display: flex;
+  width: 100%;
+  padding: 80px;
+}
+
+.about-left {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about-left .description {
+  color: #fff;
+}
+
+.about-left .title,
+.about-left i {
+  color: rgb(85, 226, 85);
+}
+
+.about-left .title {
+  font-size: 36px;
+}
+
+.about-left .description {
+  font-size: 24px;
+}
+
+.about-right {
+  padding: 0 20px;
+}
+
+.about-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .about-right {
+    margin-top: 30px;
+  }
+
+  .about {
+    padding: 20px;
+  }
+}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeTemplateComponent } from './home-template.component';
+import { AuthHomeGuard } from 'src/app/_core/guards/auth-home.guard';
 
 const routes: Routes = [
   {
@@ -32,7 +33,14 @@ const routes: Routes = [
         path: 'register',
         loadChildren: () => import('./register/register.module').then((m) => m.RegisterModule),
       },
+      // detail-user - localhost:4200/detail-user
+      {
+        path: 'detail-user',
+        loadChildren: () => import('./detail-user/detail-user.module').then((m) => m.DetailUserModule),
+        canActivate: [AuthHomeGuard]
+      },
     ],
+    
   }
 ];
 
