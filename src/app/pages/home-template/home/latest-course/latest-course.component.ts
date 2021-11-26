@@ -16,7 +16,7 @@ export class LatestCourseComponent implements OnInit {
     // Call Api lấy danh sách khóa học
     this.dataService.get('QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01').subscribe((result) => {
       this.danhSachKhoaHoc = result.filter((item: any, index: number) => {
-        return index > 6 && index < 15;
+        return index > 6 && index < 19;
       });
     })
   }

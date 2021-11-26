@@ -8,16 +8,34 @@ import { DataService } from '@services/data.service';
 })
 export class RegisteredCourseComponent implements OnInit {
   mangKhoaHocDaXetDuyet: any = [];
+  mangKhoaHocTimKiem: any = [];
+  inputSearch: any = null;
+  user = JSON.parse(localStorage.getItem('UserAdmin') || '{}');
+  value = {"taiKhoan": this.user?.taiKhoan};
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    let user = JSON.parse(localStorage.getItem('UserAdmin') || '{}');
-    let value = {"taiKhoan": user.taiKhoan};
-  
-    if (user) {
-      this.dataService.post('QuanLyNguoiDung/LayDanhSachKhoaHocDaXetDuyet', value).subscribe((result) => {
+    if (this.user) {
+      this.dataService.post('QuanLyNguoiDung/LayDanhSachKhoaHocDaXetDuyet', this.value).subscribe((result) => {
         this.mangKhoaHocDaXetDuyet = result;
-        console.log("Result:", this.mangKhoaHocDaXetDuyet);
+      })
+    }
+  }
+
+  ngDoCheck() {
+    if (this.inputSearch) {
+      this.mangKhoaHocTimKiem = this.mangKhoaHocDaXetDuyet.filter((item: any) => {
+        return item.tenKhoaHoc.toLowerCase().includes(this.inputSearch?.toLowerCase());
+      })
+  
+      if (this.mangKhoaHocTimKiem) {
+        this.mangKhoaHocDaXetDuyet = [...this.mangKhoaHocTimKiem];
+      }
+    }
+    else {
+      this.dataService.post('QuanLyNguoiDung/LayDanhSachKhoaHocDaXetDuyet', this.value).subscribe((result) => {
+        this.mangKhoaHocDaXetDuyet = result;
       })
     }
   }

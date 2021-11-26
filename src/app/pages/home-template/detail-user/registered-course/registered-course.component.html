@@ -1,4 +1,12 @@
 <div class="registered-course">
+  <div class="search" *ngIf="mangKhoaHocDaXetDuyet.length > 0">
+    <input
+      type="search"
+      placeholder="Nhập khóa học bạn muốn tìm kiếm"
+      [(ngModel)]="inputSearch"
+    />
+  </div>
+
   <div class="row">
     <ng-container *ngIf="mangKhoaHocDaXetDuyet">
       <div
@@ -18,7 +26,7 @@
           <div><span>Tên Khóa Học:</span> {{ item.tenKhoaHoc }}</div>
           <div><span>Giảng Viên:</span> Đinh Phúc Nguyên</div>
           <div><span>Ngày:</span> 26/11/2021</div>
-          <div><span>Số Lượng Học Viên:</span>50</div>
+          <div><span>Số Lượng Học Viên:</span> 50</div>
           <div class="mt-2">
             <button class="btn btn-info">Hủy</button>
           </div>
@@ -27,5 +35,7 @@
     </ng-container>
   </div>
 
-  <div class="text-center">Không Có Khóa Học Nào Được Đăng Ký</div>
+  <div *ngIf="mangKhoaHocDaXetDuyet.length === 0" class="text-center">
+    Không Có Khóa Học Nào Được Đăng Ký
+  </div>
 </div>
