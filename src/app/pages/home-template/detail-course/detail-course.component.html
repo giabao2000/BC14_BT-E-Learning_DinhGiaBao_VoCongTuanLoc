@@ -19,10 +19,12 @@
       </div>
 
       <div class="btn-register">
-        <button class="btn btn-style" (click)="handleClickRegister()">
+        <button class="btn btn-style" (click)="handleClickRegister(course)">
           Đăng Ký
         </button>
       </div>
+
+      <div *ngIf="notify" class="notify-error">{{ notify }}</div>
 
       <div class="detail-item">
         <span>Mã Khóa Học: </span>{{ course.maKhoaHoc }}

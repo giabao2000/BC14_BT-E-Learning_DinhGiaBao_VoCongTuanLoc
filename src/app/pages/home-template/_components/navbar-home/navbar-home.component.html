@@ -13,11 +13,6 @@
       <span> Danh Mục Khóa Học</span>
     </div>
 
-    <!-- Search -->
-    <div class="search">
-      <input type="search" placeholder="Search info" />
-    </div>
-
     <!-- Navbar -->
     <div class="navbar">
       <div class="navbar-menu">
@@ -39,7 +34,7 @@
     </div>
 
     <div class="btn-login" *ngIf="isLogin">
-      <div class="ml-2 mr-2">
+      <div class="mr-4">
         Xin Chào, <a class="user" routerLink="/detail-user">{{ user.hoTen }}</a>
       </div>
       <a class="btn btn-style" routerLink="/login" (click)="logout()"

@@ -100,14 +100,6 @@
 }
 
 @media (max-width: 1023px) {
-  .menu-toggle span {
-    display: none;
-  }
-
-  .search input {
-    width: 250px;
-  }
-
   .list-menu {
     padding: 0;
   }
@@ -129,8 +121,8 @@
     display: none;
   }
 
-  .search {
-    width: 250px;
+  .menu-toggle span {
+    display: none;
   }
 
   .list-menu-item a {

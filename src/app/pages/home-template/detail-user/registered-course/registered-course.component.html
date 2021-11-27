@@ -8,6 +8,7 @@
   </div>
 
   <div class="row">
+    <div *ngIf="notify" class="notify-error">{{ notify }}</div>
     <ng-container *ngIf="mangKhoaHocDaXetDuyet">
       <div
         class="registered-course-item col-lg-12 col-md-12 col-sm-12"
@@ -28,14 +29,16 @@
           <div><span>Ngày:</span> 26/11/2021</div>
           <div><span>Số Lượng Học Viên:</span> 50</div>
           <div class="mt-2">
-            <button class="btn btn-info">Hủy</button>
+            <button class="btn btn-info" (click)="handleDeteleCourse(item)">
+              Hủy
+            </button>
           </div>
         </div>
       </div>
     </ng-container>
   </div>
 
-  <div *ngIf="mangKhoaHocDaXetDuyet.length === 0" class="text-center">
+  <div *ngIf="mangKhoaHocDaXetDuyet.length === 0 && !notify" class="text-center">
     Không Có Khóa Học Nào Được Đăng Ký
   </div>
 </div>

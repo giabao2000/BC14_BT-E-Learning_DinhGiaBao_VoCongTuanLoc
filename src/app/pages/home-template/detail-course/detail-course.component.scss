@@ -60,10 +60,20 @@
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
+    border: 2px solid #fff;
+    transition: all 0.5s;
+  }
+
+  img:hover {
+    transform: translateY(-20px);
   }
 }
 
 .btn-register {
   padding: 20px 0;
   text-align: center;
+}
+
+.notify-error {
+  font-size: 24px;
 }

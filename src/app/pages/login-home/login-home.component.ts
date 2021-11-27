@@ -24,6 +24,8 @@ export class LoginHomeComponent implements OnInit {
   }
 
   handleLoginClick() {
+    this.notify = "";
+    
     this.el.nativeElement.querySelector('#btn-active').style.left = "0";
     this.el.nativeElement.querySelector('#register').style.left = "450px";
     this.el.nativeElement.querySelector('#login').style.left = "50px";
@@ -32,6 +34,8 @@ export class LoginHomeComponent implements OnInit {
   }
 
   handleRegisterClick() {
+    this.notify = "";
+
     this.el.nativeElement.querySelector('#btn-active').style.left = "130px";
     this.el.nativeElement.querySelector('#register').style.left = "50px";
     this.el.nativeElement.querySelector('#login').style.left = "-400px";
@@ -66,10 +70,10 @@ export class LoginHomeComponent implements OnInit {
   // Đăng kí
   registerUser(user: any) {
     user.maNhom = "GP01";
-    console.log(user);
+    // console.log(user);
 
     this.dataService.post('QuanLyNguoiDung/DangKy', user)
-    .subscribe((result) => {}, (error) => this.notify = error.error);
+    .subscribe((result) => { this.notify = "Đăng ký thành công"}, (error) => this.notify = error.error);
   }
 
 }

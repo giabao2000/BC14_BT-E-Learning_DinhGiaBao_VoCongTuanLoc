@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail-course.component.scss']
 })
 export class DetailCourseComponent implements OnInit {
-  course: any;
-  id: any;
+  course: any = '';
+  id: any = '';
+  notify: any = '';
 
   constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private router: Router) { }
 
@@ -20,35 +21,39 @@ export class DetailCourseComponent implements OnInit {
   }
 
   getParamsFromUrl() {
-    // lấy 1 param từ url
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    // console.log(this.id);
-
-    // lấy nhiều param từ url
-    // this.activatedRoute.queryParams.subscribe((params) => {
-    //   console.log(params);
-    // });
   }
 
   getDetailCourse(id: any) {
-    // muốn lấy data trong getDetailCourse() thì phải sử dụng subscribe()
     this.dataService.get(`QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${id}`).subscribe((result: any) => {
-      // console.log("get detail course:", result);
       this.course = result;
     })
   }
 
-  handleClickRegister() {
+  handleClickRegister(course: any) {
+    // Đã Login
     if (localStorage.getItem('User') || localStorage.getItem('UserAdmin')) {
-      // Nếu đã login thì chuyến đến trang /detail-user
-      this.router.navigate(['/detail-user']);
+
+      let currentUser = JSON.parse(localStorage.getItem('UserAdmin') || localStorage.getItem('User') || '{}');
+      let value = {"maKhoaHoc": course.maKhoaHoc, "taiKhoan": currentUser?.taiKhoan}
+
+      // Ghi danh khóa học
+      this.dataService.post('QuanLyKhoaHoc/GhiDanhKhoaHoc', value).subscribe((result: any) => {}, (error) => {
+        if (error.error && error.error.text === "Ghi danh thành công!") {
+          // Đăng ký thành công => Chuyến đến trang /detail-user
+          this.router.navigate(['/detail-user']);
+          return;
+        }
+        
+        this.notify = "Đăng ký khóa học thất bại vì bạn không đủ quyền"
+      
+      })
+    }
+    else {
+      // Nếu chưa login thì chuyến đến trang /login
+      this.router.navigate(['/login']);
       return;
     }
-    
-    // Nếu chưa login thì chuyến đến trang /login
-    this.router.navigate(['/login']);
-    return;
-  
   }
 
 }
