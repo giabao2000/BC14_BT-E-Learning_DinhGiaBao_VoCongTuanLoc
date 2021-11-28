@@ -1,5 +1,5 @@
 <div class="registered-course">
-  <div class="search" *ngIf="mangKhoaHocDaXetDuyet.length > 0">
+  <div class="search">
     <input
       type="search"
       placeholder="Nhập khóa học bạn muốn tìm kiếm"
@@ -38,7 +38,10 @@
     </ng-container>
   </div>
 
-  <div *ngIf="mangKhoaHocDaXetDuyet.length === 0 && !notify" class="text-center">
+  <div
+    *ngIf="mangKhoaHocDaXetDuyet.length === 0 && !notify"
+    class="text-center"
+  >
     Không Có Khóa Học Nào Được Đăng Ký
   </div>
 </div>

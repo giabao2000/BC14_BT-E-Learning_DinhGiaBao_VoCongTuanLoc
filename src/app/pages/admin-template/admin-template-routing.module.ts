@@ -15,15 +15,33 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+      },
+      {
+        path: 'add-user',
+        loadChildren: () =>
+          import('./add-user/add-user.module').then((m) => m.AddUserModule),
+      },
+      {
+        path: 'list-user',
+        loadChildren: () =>
+          import('./list-user/list-user.module').then((m) => m.ListUserModule),
+      },
+      {
+        path: 'add-course',
+        loadChildren: () =>
+          import('./add-course/add-course.module').then(
+            (m) => m.AddCourseModule
+          ),
       },
     ],
     canActivate: [AuthGuard],
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminTemplateRoutingModule { }
+export class AdminTemplateRoutingModule {}

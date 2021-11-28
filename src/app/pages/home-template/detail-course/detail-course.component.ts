@@ -40,13 +40,19 @@ export class DetailCourseComponent implements OnInit {
       // Ghi danh khóa học
       this.dataService.post('QuanLyKhoaHoc/GhiDanhKhoaHoc', value).subscribe((result: any) => {}, (error) => {
         if (error.error && error.error.text === "Ghi danh thành công!") {
-          // Đăng ký thành công => Chuyến đến trang /detail-user
-          this.router.navigate(['/detail-user']);
-          return;
+          this.notify = error.error.text;
+
+          setTimeout(() => {
+            // Đăng ký thành công => Chuyến đến trang /detail-user
+            this.router.navigate(['/detail-user']);
+            return;
+          }, 2000)
+         
         }
-        
-        this.notify = "Đăng ký khóa học thất bại vì bạn không đủ quyền"
-      
+        else {
+          // Đăng kí thất bại
+          this.notify = "Đăng ký khóa học thất bại vì bạn không đủ quyền"
+        }
       })
     }
     else {
