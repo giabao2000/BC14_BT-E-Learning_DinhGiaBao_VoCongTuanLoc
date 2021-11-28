@@ -1,3 +1,8 @@
+# Phân Công Công Việc
+
+Đinh Gia Bảo: Trang Chủ, Danh Mục khóa Học, Tìm Kiếm Khóa Học, Chi Tiết Khóa Học, Đăng Kí, Đăng Nhập, Thông Tin Cá Nhân, Khóa Học Đã Ghi Danh
+Võ Công Tuấn Lộc: Quản Lý Người Dùng, Thêm Sửa Người Dùng, Quản Lý Khóa Học, Thêm Sửa Khóa Học
+
 # Bc14angularrouting
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
